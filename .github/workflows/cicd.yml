@@ -23,5 +23,5 @@ jobs:
 
       - name: checking the running
         run: |
-          echo "Hello world! ${naomi}"
+          echo "Hello world! $(naomi)"
 
