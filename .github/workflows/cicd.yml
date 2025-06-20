@@ -4,11 +4,20 @@ on:
   push:
     branches: [ main ]
 
+## setting the environment
+env:
+  GLOBAL_VARIABLE: global_value
+
+## setting up jobs 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      JOB_VARIABLE: job_value
+
     steps:
+      
       - name: checking out code
         uses: actions/checkout@v4
 
@@ -23,5 +32,7 @@ jobs:
 
       - name: checking the running
         run: |
-          echo "Hello world! $(naomi)"
+          echo "global_variable: ${{env.GLOBAL_VARIABLE}}"
+          echo "local_variable: ${{env.JOB_VARIABLE}}"
+          
 
