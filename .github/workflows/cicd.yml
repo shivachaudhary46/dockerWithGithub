@@ -1,29 +1,23 @@
-name : CI/CD workflows for Dockerized Flask App
+name: CI/CD configurtion workflows
 
 on:
-  ## triggering a workflows with push event on branch main 
-  push : 
+  push:
     branches: [ main ]
 
 jobs:
-  build-and-test:
-    # running on the ubuntu latest runner virtual machine 
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      ## checking out the code 
-      - name: checking out the code
+      - name: checking out code
         uses: actions/checkout@v4
-      
-      ## setting up the python versions 
-      - name: setting up python 
-        uses: actions/setup-python@v4
-        with: 
-          python-version : '3.9'
 
-      - name: Install Dependencies 
+      - name: setting up python version
+        uses: actions/setup-python@v4
+
+      - name: installing dependecies 
         run: |
-          python -m pip install --upgrade pip 
+          python -m pip install --upgrade pip
           pip install flask
-          pip install pytest 
+          pip install pytest
 
