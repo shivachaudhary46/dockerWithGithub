@@ -35,4 +35,7 @@ jobs:
           echo "global_variable: ${{env.GLOBAL_VARIABLE}}"
           echo "local_variable: ${{env.JOB_VARIABLE}}"
           
+      - name: running pytests
+        run: |
+          pytest
 
