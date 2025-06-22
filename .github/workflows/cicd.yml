@@ -57,9 +57,10 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
 
       - name: Building and pushing Docker image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v5
         with:
           context: .
+          file: ./Dockerfile
           push: true
           tags: ${{secrets.DOCKER_USERNAME}}/docker-cicd-app:latest
 
