@@ -47,6 +47,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: checkout full repo
+        uses: actions/checkout@v4 
+
       - name: creating docker images 
         uses: docker/setup-buildx-action@v3
 
